@@ -1,0 +1,261 @@
+<html>
+
+<head>
+    <link href="still/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>Chat Uygulaması</title>
+
+    <style>
+        .form-signin-heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-signin {
+            max-width: 420px;
+            padding: 30px 38px 66px;
+            margin: 0 auto;
+            background-color: #eee;
+            border: 3px dotted rgba(0, 0, 0, 0.1);
+        }
+
+        .wrapper {
+            margin-top: 80px;
+            margin-bottom: 20px;
+        }
+
+        #chat {
+
+            background-color: #FFFFFF;
+            box-shadow: 0 6px 30px 0 rgba(0, 0, 0, 0.06);
+            position: relative;
+            margin-left: 200px;
+            height: 350px;
+            width: 325px;
+            top: -375px;
+            border-radius: 24px;
+            border: 5px black;
+            border-style: solid;
+            border-width: 2px;
+
+        }
+
+        #chat1 {
+
+           
+           background-color: #FFFFFF;
+            box-shadow: 0 6px 30px 0 rgba(0, 0, 0, 0.06);
+            position: relative;
+            margin-left: 600px;
+            height: 350px;
+            width: 325px;
+            top: -390px;
+            border-radius: 24px;
+            border: 5px black;
+            border-style: solid;
+            border-width: 2px;
+        }
+
+
+
+
+        #chatWrap {
+            float: left;
+        }
+
+        .error {
+            color: red
+        }
+
+        .whisper {
+            color: gray;
+            font-style: italic;
+        }
+
+        #users {
+            width: 100px;
+            height: 400px;
+            background-color: c7fafc;
+            padding: 10px;
+            position: relative;
+            border: 5px double teal;
+            border-style: solid;
+            border-width: 2px;
+            top: 30px;
+        }
+
+        #message {
+            width: 350px;
+            top: -500px;
+
+        }
+
+        #send-message {
+            position: relative;
+            margin-left: 440px;
+
+           
+        }
+
+        .colorgraph {
+            height: 7px;
+            border-top: 0;
+            background: #c4e17f;
+            border-radius: 5px;
+            background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+            background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+            background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+            background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+        }
+
+        .form-control {
+            position: relative;
+            font-size: 16px;
+            height: auto;
+            padding: 10px;
+        }
+
+        input[type="text"] {
+            margin-bottom: 0px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .profile-img {
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 10px;
+            display: block;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+        }
+
+        .baslik {
+            border-radius: 24px;
+            border: 5px black;
+            border-style: solid;
+            border-width: 2px;
+            margin-left: -5px;
+            position: relative;
+            top: 15px;
+
+        }
+
+    </style>
+</head>
+
+<body style="background-color:#c4e4de">
+    <div class="container" id="nickWrap">
+        <div class="wrapper">
+
+            <p id="nickError"></p>
+            <form class="form-signin" id="setNick">
+                <img class="profile-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ_3BSy4Fj2A9cEewqEunptEL3Bl8OJK8BX0Cw5hb8cbGXokgL" alt="">
+                <h3 class="form-signin-heading">Kullanıcı Adı Giriniz</h3>
+                <hr class="colorgraph"><br>
+
+                <input type="text" class="form-control" size="35" id="nickname" placeholder="Kullanıcı Adı Giriniz"></input>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Giriş Yap</button>
+            </form>
+        </div>
+    </div>
+    <div style="margin-left: 50px;display: none;" id="contentWrap">
+        <b class="baslik">.Aktif Kullanıcılar.</b>
+        <div style="border-radius: 24px;" id="users"> </div>
+        <div id="chatWrap">
+            <b class="baslik" style=" top: -407px; margin-left: 285px">.Genel Chat Ekranı.</b>
+            <div  id="chat" style="top: -395px"></div>
+            <div class="row">
+                <div class="row">
+                    <div class="span4 well" style="padding-bottom:0">
+                        <form style="top: -320px;" accept-charset="UTF-8" action="" method="POST" id="send-message">
+                            <textarea style="resize: none;" class="span4" placeholder="Mesajı Yazın" id="message" rows="4"></textarea>
+                            <br></br>
+                            <button style="margin-left: 125px;" class="btn btn-success" type="submit" id="mesajYolla">Mesaj Yolla</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <b class="baslik" style=" top: -407px; margin-left: -60px">.Özel Chat Ekranı.</b>
+        <div id="chat1"></div>
+    </div>
+
+    </div>
+
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+
+        jQuery(function($) {
+        
+
+
+            var socket = io.connect();
+            var $nickForm = $('#setNick');
+            var $nickError = $('#nickError');
+            var $nickBox = $('#nickname');
+            var $users = $('#users');
+            var $messageForm = $('#send-message');
+            var $messageBox = $('#message');
+            var $chat = $('#chat');
+            var $chat1 = $('#chat1');
+
+
+            $nickForm.submit(function(e) {
+                e.preventDefault();
+                socket.emit('new user', $nickBox.val(), function(data) {
+                    if (data) {
+                        $('#nickWrap').hide();
+                        $('#contentWrap').show();
+                    } else {
+                        $nickError.html('Bu kullanıcı Adı Daha önceden alındı !!!');
+                    }
+                });
+
+                $nickBox.val('');
+            });
+
+            socket.on('usernames', function(data) {
+                var html = '';
+                for (i = 0; i < data.length; i++) {
+                    html += data[i] + '<br/>'
+                }
+                $users.html(html);
+            });
+
+            $messageForm.submit(function(e) {
+                var private = $messageBox.val();
+                if (private.substr(0, 3) === '/w ') {
+                    $chat1.append('<span class="whisper"><b>' + $messageBox.val() + "</span><br/>");
+                }
+
+
+                e.preventDefault();
+                socket.emit('send message', $messageBox.val(), function(data) {
+                    $chat.append('<span class="error">' + data + "</span><br/>");
+                });
+                $messageBox.val('');
+
+            });
+
+            socket.on('new message', function(data) {
+                
+
+                $chat.append('<span class="msg"><b>' + data.nick + ' : </b>' + data.msg + "</span><br/>");
+            });
+            socket.on('whisper', function(data) {
+                $chat1.append('<span class="whisper"><b>' + data.nick + ' : </b>' + data.msg + "</span><br/>");
+            });
+
+
+        });
+
+    </script>
+</body>
+
+</html>
